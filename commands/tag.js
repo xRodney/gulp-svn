@@ -12,7 +12,7 @@ module.exports = function(tag, message, options, cb) {
 
     if(!cb || typeof cb !== 'function') cb = function() {};
     if(!options) options = {};
-    if(!tag) return cb(new Error('Tag must be defined'));
+	if(!tag) return cb(new Error('Tag cannot be inferred and must be defined'));
     if(!message) return cb(new Error('Message must be defined'));
     if(!options.cwd) options.cwd = process.cwd();
     if(!options.args) options.args = ' ';
@@ -28,9 +28,17 @@ module.exports = function(tag, message, options, cb) {
         }
     }
     var projectRoot = projectRoot.replace(/\/$/, '');
+	var from, to;
+	
+	if (projectRoot.indexOf('trunk') >= 1) {
+		from = projectRoot;
+		to = projectRoot.replace('trunk', 'tags') + '-' + tag;
+	}
+	else {
+		from = projectRoot + '/trunk/';
+		to = projectRoot + '/tags/' + tag;
+	}
 
-    var from = projectRoot + '/trunk/';
-    var to = projectRoot + '/tags/' + tag;
 
     var cmd = 'svn cp ' + from + ' ' + to + ' -m "' + message + '" ' + options.args;
     console.log(cmd);
