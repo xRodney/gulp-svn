@@ -2,12 +2,12 @@
   "name": "gulp-svn",
   "version": "1.0.5",
   "description": "SVN plugin for gulp (gulpjs.com)",
-  "homepage": "https://github.com/yasinkocak/gulp-svn",
+  "homepage": "https://github.com/xRodney/gulp-svn",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yasinkocak/gulp-svn.git"
+    "url": "https://github.com/xRodney/gulp-svn.git"
   },
-  "author": "Yasin Kocak",
+  "author": "Yasin Kocak, modified by Dusan Jakub",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,7 +32,7 @@
     "svn-project-root": "^0.1.0"
   },
   "bugs": {
-    "url": "https://github.com/yasinkocak/gulp-svn/issues"
+    "url": "https://github.com/xRodney/gulp-svn/issues"
   },
   "devDependencies": {}
 }
